@@ -32,7 +32,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   const getIcon = (iconName: string) => {
-    const props = { className: "w-5 h-5 text-brand-blue" };
+    const props = { className: "w-5 h-5 text-brand-blue transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" };
     switch (iconName) {
       case "Building2":
         return <Building2 {...props} />;
@@ -77,7 +77,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const whatsappLink = getWhatsAppUrl(whatsappNumber, service.whatsappMessage);
 
   return (
-    <div className="group bg-white rounded-card border border-brand-border overflow-hidden shadow-card hover:shadow-cardHover hover:border-brand-blue/40 transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
+    <div className="group bg-white rounded-card border border-brand-border overflow-hidden shadow-card hover:shadow-[0_8px_30px_rgba(23,105,170,0.12)] hover:border-brand-blue/50 transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
       {/* Service Card Image */}
       <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-slate-100">
         <Image
@@ -89,9 +89,11 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
-        {/* Floating Category Badge */}
-        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brand-navy text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm flex items-center gap-1.5">
-          {getIcon(service.icon)}
+        {/* Floating Category Badge with Animated Icon */}
+        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brand-navy text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm flex items-center gap-1.5 border border-slate-100 group-hover:border-brand-blue/30 transition-colors">
+          <div className="p-0.5">
+            {getIcon(service.icon)}
+          </div>
           <span>{service.category}</span>
         </div>
       </div>
@@ -131,7 +133,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-semibold rounded-btn bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all duration-200"
+            className="inline-flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-semibold rounded-btn bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all duration-200 active:scale-95"
             aria-label={`Enquire on WhatsApp about ${service.title}`}
           >
             <div className="relative w-3.5 h-3.5 rounded-full overflow-hidden flex-shrink-0">

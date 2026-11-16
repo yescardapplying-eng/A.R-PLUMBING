@@ -6,7 +6,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Phone,
-  MessageCircle,
   Menu,
   X,
   ChevronDown,
@@ -31,7 +30,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -55,17 +54,17 @@ export default function Header() {
     setDesktopServicesOpen(false);
   }, [pathname]);
 
+  // Main navigation without "Service Areas" as per user instruction
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     {
-      label: "Services",
+      label: "Our Services",
       href: "/services",
       hasDropdown: true,
     },
     { label: "Projects", href: "/projects" },
     { label: "Gallery", href: "/gallery" },
-    { label: "Service Areas", href: "/service-areas" },
     { label: "Contact Us", href: "/contact" },
   ];
 
@@ -94,29 +93,30 @@ export default function Header() {
 
   return (
     <>
+      {/* Sleek, compact top header bar */}
       <header
-        className={`sticky top-0 z-40 w-full bg-white transition-all duration-300 border-b ${
+        className={`sticky top-0 z-40 w-full bg-white transition-all duration-250 border-b ${
           isScrolled
-            ? "shadow-md border-brand-border py-2.5"
-            : "border-brand-border/80 py-3.5"
+            ? "shadow-sm border-brand-border py-1"
+            : "border-brand-border/70 py-1.5 sm:py-2"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16">
-            {/* Logo */}
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-10 sm:h-12">
+            {/* Sleek Logo */}
             <Link
               href="/"
               className="flex-shrink-0 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded"
               aria-label="A.R Plumbing Home"
             >
-              <div className="relative w-44 sm:w-52 md:w-56 h-12 sm:h-14">
+              <div className="relative w-36 sm:w-44 md:w-48 h-8 sm:h-9 md:h-10">
                 <Image
                   src="/images/ar-plumbing-horizontal-logo.png"
                   alt="A.R Plumbing - Residential, Commercial, Projects"
                   fill
                   priority
                   className="object-contain object-left"
-                  sizes="(max-width: 640px) 180px, 240px"
+                  sizes="(max-width: 640px) 150px, 200px"
                 />
               </div>
             </Link>
@@ -139,7 +139,7 @@ export default function Header() {
                     >
                       <Link
                         href={link.href}
-                        className={`inline-flex items-center gap-1 px-3 py-2 text-sm font-medium font-body transition-colors relative duration-200 group ${
+                        className={`inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm font-medium font-body transition-colors relative duration-200 group ${
                           isActive
                             ? "text-brand-blue font-semibold"
                             : "text-brand-text hover:text-brand-orange"
@@ -148,7 +148,7 @@ export default function Header() {
                         <span>{link.label}</span>
                         <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
                         <span
-                          className={`absolute bottom-0 left-0 h-0.5 bg-brand-orange transition-all duration-250 ease-out ${
+                          className={`absolute bottom-0 left-0 h-0.5 bg-brand-orange transition-all duration-200 ease-out ${
                             isActive
                               ? "w-full"
                               : "w-0 group-hover:w-full"
@@ -158,10 +158,10 @@ export default function Header() {
 
                       {/* Dropdown Menu */}
                       <div
-                        className={`absolute top-full left-1/2 -translate-x-1/2 w-[520px] bg-white rounded-card shadow-2xl border border-brand-border p-4 transition-all duration-250 ease-out z-50 ${
+                        className={`absolute top-full left-1/2 -translate-x-1/2 w-[520px] bg-white rounded-card shadow-2xl border border-brand-border p-4 transition-all duration-200 ease-out z-50 ${
                           desktopServicesOpen
                             ? "opacity-100 translate-y-1 visible pointer-events-auto"
-                            : "opacity-0 translate-y-3 invisible pointer-events-none"
+                            : "opacity-0 translate-y-2 invisible pointer-events-none"
                         }`}
                       >
                         <div className="grid grid-cols-2 gap-2">
@@ -169,9 +169,9 @@ export default function Header() {
                             <Link
                               key={service.slug}
                               href={`/services/${service.slug}`}
-                              className="flex items-start gap-2.5 p-2.5 rounded-lg hover:bg-brand-lightBlue/60 transition-colors group/item"
+                              className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-brand-lightBlue/60 transition-colors group/item"
                             >
-                              <div className="p-2 rounded bg-brand-lightBlue text-brand-blue group-hover/item:bg-brand-blue group-hover/item:text-white transition-colors">
+                              <div className="p-1.5 rounded bg-brand-lightBlue text-brand-blue group-hover/item:bg-brand-blue group-hover/item:text-white transition-colors">
                                 {getServiceIcon(service.icon)}
                               </div>
                               <div>
@@ -205,7 +205,7 @@ export default function Header() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className={`relative px-3 py-2 text-sm font-medium font-body transition-colors duration-200 group ${
+                    className={`relative px-3 py-1.5 text-xs sm:text-sm font-medium font-body transition-colors duration-200 group ${
                       isActive
                         ? "text-brand-blue font-semibold"
                         : "text-brand-text hover:text-brand-orange"
@@ -213,7 +213,7 @@ export default function Header() {
                   >
                     <span>{link.label}</span>
                     <span
-                      className={`absolute bottom-0 left-0 h-0.5 bg-brand-orange transition-all duration-250 ease-out ${
+                      className={`absolute bottom-0 left-0 h-0.5 bg-brand-orange transition-all duration-200 ease-out ${
                         isActive ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
@@ -223,10 +223,10 @@ export default function Header() {
             </nav>
 
             {/* Desktop Action Buttons (Call Now & WhatsApp) */}
-            <div className="hidden sm:flex items-center gap-2 lg:gap-3">
+            <div className="hidden sm:flex items-center gap-2 lg:gap-2.5">
               <a
                 href={getPhoneUrl(BUSINESS_CONFIG.phoneNumber1)}
-                className="inline-flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-btn bg-brand-navy hover:bg-brand-navyDark text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-btn bg-brand-navy hover:bg-brand-navyDark text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5"
                 aria-label={`Call A.R Plumbing at ${BUSINESS_CONFIG.phoneNumber1Display}`}
               >
                 <Phone className="w-3.5 h-3.5 text-brand-orange" />
@@ -240,21 +240,21 @@ export default function Header() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-btn bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-btn bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5"
                 aria-label="Chat with A.R Plumbing on official WhatsApp"
               >
-                <div className="relative w-4 h-4 rounded-full overflow-hidden flex-shrink-0">
+                <div className="relative w-3.5 h-3.5 rounded-full overflow-hidden flex-shrink-0">
                   <Image src="/images/whatsapp-official.png" alt="WhatsApp" fill className="object-cover" />
                 </div>
                 <span>WhatsApp</span>
               </a>
             </div>
 
-            {/* Mobile Hamburger Button */}
-            <div className="flex items-center sm:gap-2 lg:hidden">
+            {/* Mobile Actions: Phone Icon & Hamburger Button (Sleek & Compact) */}
+            <div className="flex items-center gap-1 lg:hidden">
               <a
                 href={getPhoneUrl(BUSINESS_CONFIG.phoneNumber1)}
-                className="sm:hidden p-2 rounded-lg text-brand-navy hover:bg-slate-100 transition-colors mr-1"
+                className="p-1.5 rounded-md text-brand-navy hover:bg-slate-100 transition-colors"
                 aria-label="Call A.R Plumbing"
               >
                 <Phone className="w-5 h-5 text-brand-orange" />
@@ -263,7 +263,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-brand-navy hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+                className="p-1.5 rounded-md text-brand-navy hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
                 aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={mobileMenuOpen}
               >
@@ -280,27 +280,27 @@ export default function Header() {
 
       {/* Mobile Navigation Drawer */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-50 lg:hidden transition-all duration-250 ${
           mobileMenuOpen ? "visible" : "invisible pointer-events-none"
         }`}
       >
         {/* Backdrop */}
         <div
           onClick={() => setMobileMenuOpen(false)}
-          className={`fixed inset-0 bg-brand-navy/60 backdrop-blur-sm transition-opacity duration-300 ${
+          className={`fixed inset-0 bg-brand-navy/60 backdrop-blur-sm transition-opacity duration-250 ${
             mobileMenuOpen ? "opacity-100" : "opacity-0"
           }`}
         />
 
         {/* Slide-out Menu Panel */}
         <div
-          className={`fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white shadow-2xl flex flex-col z-50 transform transition-transform duration-300 ease-out ${
+          className={`fixed top-0 right-0 w-[82%] max-w-sm h-full bg-white shadow-2xl flex flex-col z-50 transform transition-transform duration-250 ease-out ${
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           {/* Menu Header */}
-          <div className="p-4 border-b border-brand-border flex items-center justify-between bg-brand-offwhite">
-            <div className="relative w-36 h-10">
+          <div className="p-3.5 border-b border-brand-border flex items-center justify-between bg-brand-offwhite">
+            <div className="relative w-32 h-8">
               <Image
                 src="/images/ar-plumbing-horizontal-logo.png"
                 alt="A.R Plumbing Logo"
@@ -310,7 +310,7 @@ export default function Header() {
             </div>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-full hover:bg-slate-200 text-brand-navy focus:outline-none"
+              className="p-1.5 rounded-full hover:bg-slate-200 text-brand-navy focus:outline-none"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" />
@@ -318,7 +318,7 @@ export default function Header() {
           </div>
 
           {/* Menu Items */}
-          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
+          <div className="flex-1 overflow-y-auto px-4 py-3 space-y-1">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -332,7 +332,7 @@ export default function Header() {
                       <Link
                         href={link.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className={`flex-1 py-3 text-base font-semibold ${
+                        className={`flex-1 py-2.5 text-sm font-semibold ${
                           isActive ? "text-brand-blue" : "text-brand-navy"
                         }`}
                       >
@@ -341,7 +341,7 @@ export default function Header() {
                       <button
                         type="button"
                         onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                        className="p-3 text-brand-muted hover:text-brand-orange"
+                        className="p-2 text-brand-muted hover:text-brand-orange"
                         aria-label="Toggle services list"
                       >
                         <ChevronDown
@@ -353,13 +353,13 @@ export default function Header() {
                     </div>
 
                     {mobileServicesOpen && (
-                      <div className="pl-3 pr-1 py-2 space-y-2 bg-brand-offwhite/80 rounded-lg my-1">
+                      <div className="pl-3 pr-1 py-1.5 space-y-1.5 bg-brand-offwhite/80 rounded-lg my-1">
                         {SERVICES_DATA.slice(0, 8).map((s) => (
                           <Link
                             key={s.slug}
                             href={`/services/${s.slug}`}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="block py-1.5 text-xs font-medium text-brand-text hover:text-brand-blue transition-colors"
+                            className="block py-1 text-xs font-medium text-brand-text hover:text-brand-blue transition-colors"
                           >
                             • {s.title}
                           </Link>
@@ -367,7 +367,7 @@ export default function Header() {
                         <Link
                           href="/services"
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block pt-2 text-xs font-bold text-brand-orange"
+                          className="block pt-1.5 text-xs font-bold text-brand-orange"
                         >
                           View All 16 Services →
                         </Link>
@@ -382,7 +382,7 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block py-3 text-base font-semibold border-b border-slate-100 transition-colors ${
+                  className={`block py-2.5 text-sm font-semibold border-b border-slate-100 transition-colors ${
                     isActive ? "text-brand-blue" : "text-brand-navy hover:text-brand-orange"
                   }`}
                 >
@@ -393,10 +393,10 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Action CTAs */}
-          <div className="p-4 border-t border-brand-border bg-brand-offwhite space-y-2.5">
+          <div className="p-3.5 border-t border-brand-border bg-brand-offwhite space-y-2">
             <a
               href={getPhoneUrl(BUSINESS_CONFIG.phoneNumber1)}
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-btn bg-brand-navy text-white text-sm font-semibold shadow-sm"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-btn bg-brand-navy text-white text-xs sm:text-sm font-semibold shadow-sm"
             >
               <Phone className="w-4 h-4 text-brand-orange" />
               <span>Call Us: {BUSINESS_CONFIG.phoneNumber1Display}</span>
@@ -408,14 +408,14 @@ export default function Header() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-btn bg-brand-whatsapp text-white text-sm font-semibold shadow-sm"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-btn bg-brand-whatsapp text-white text-xs sm:text-sm font-semibold shadow-sm"
             >
-              <div className="relative w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+              <div className="relative w-4 h-4 rounded-full overflow-hidden flex-shrink-0">
                 <Image src="/images/whatsapp-official.png" alt="WhatsApp" fill className="object-cover" />
               </div>
               <span>WhatsApp Us</span>
             </a>
-            <p className="text-center text-[11px] text-brand-muted pt-1">
+            <p className="text-center text-[10px] text-brand-muted pt-0.5">
               Royapettah, Chennai • Within 40 km Radius
             </p>
           </div>

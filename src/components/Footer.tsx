@@ -31,25 +31,17 @@ export default function Footer() {
   const topServices = SERVICES_DATA.slice(0, 7);
 
   return (
-    <footer className="bg-brand-navy text-white pt-14 pb-12 border-t-4 border-brand-orange">
+    <footer className="bg-brand-navy text-white pt-12 pb-10 border-t-4 border-brand-orange">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-slate-700/80">
-          {/* Column 1: Company Profile & Logo */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 pb-10 border-b border-slate-700/80">
+          {/* Column 1: Company Profile & Single Clean Logo */}
           <div className="space-y-4">
-            {/* Sleek, tight container so the logo is crisp and high-quality without excessive white borders */}
-            <div className="inline-flex items-center gap-2.5 p-1.5 pr-3.5 rounded-lg bg-white shadow-md border border-white/20">
-              <div className="relative w-10 h-10 rounded overflow-hidden flex-shrink-0">
-                <Image
-                  src="/images/ar-plumbing-square-logo.png"
-                  alt="A.R Plumbing Icon Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="relative w-36 h-9">
+            {/* Single, pristine, high-resolution horizontal logo */}
+            <div className="inline-block p-1.5 px-3 rounded-lg bg-white shadow-sm border border-white/20">
+              <div className="relative w-44 sm:w-48 h-10 sm:h-11">
                 <Image
                   src="/images/ar-plumbing-horizontal-logo.png"
-                  alt="A.R Plumbing - Residential & Projects"
+                  alt="A.R Plumbing - Residential, Commercial, Projects"
                   fill
                   className="object-contain object-left"
                 />
@@ -68,7 +60,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-base font-bold font-heading uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+            <h3 className="text-sm font-bold font-heading uppercase tracking-wider text-white mb-3.5 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand-orange" />
               Quick Links
             </h3>
@@ -89,7 +81,7 @@ export default function Footer() {
 
           {/* Column 3: Our Services */}
           <div>
-            <h3 className="text-base font-bold font-heading uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+            <h3 className="text-sm font-bold font-heading uppercase tracking-wider text-white mb-3.5 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand-orange" />
               Our Services
             </h3>
@@ -117,8 +109,8 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact & Locations */}
-          <div className="space-y-4">
-            <h3 className="text-base font-bold font-heading uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+          <div className="space-y-3.5">
+            <h3 className="text-sm font-bold font-heading uppercase tracking-wider text-white mb-3.5 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand-orange" />
               Contact Details
             </h3>
@@ -182,7 +174,7 @@ export default function Footer() {
             </div>
 
             {/* Verified Address & Hours */}
-            <div className="pt-2 space-y-2 text-xs text-slate-300">
+            <div className="pt-1.5 space-y-1.5 text-xs text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
                 <span className="leading-snug">
@@ -201,7 +193,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             Copyright © {currentYear} A.R Plumbing. All Rights Reserved.
           </div>
