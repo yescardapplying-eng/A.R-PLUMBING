@@ -81,10 +81,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1 py-2 px-3 text-xs font-semibold rounded-btn bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all duration-200"
+            className="inline-flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-semibold rounded-btn bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all duration-200"
             aria-label={`Enquire about ${project.title} on WhatsApp`}
           >
-            <MessageCircle className="w-3.5 h-3.5 fill-current stroke-none" />
+            <div className="relative w-3.5 h-3.5 rounded-full overflow-hidden flex-shrink-0">
+              <Image src="/images/whatsapp-official.png" alt="WhatsApp" fill className="object-cover" />
+            </div>
             <span>Enquire</span>
           </a>
         </div>

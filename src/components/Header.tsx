@@ -236,14 +236,16 @@ export default function Header() {
               <a
                 href={getWhatsAppUrl(
                   BUSINESS_CONFIG.whatsAppNumber1,
-                  "Hello A.R Plumbing, I would like to enquire about your plumbing services in Chennai."
+                  "Hello A.R Plumbing, I would like to enquire about residential plumbing services in Chennai."
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-btn bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5"
-                aria-label="Chat with A.R Plumbing on WhatsApp"
+                aria-label="Chat with A.R Plumbing on official WhatsApp"
               >
-                <MessageCircle className="w-3.5 h-3.5 fill-current stroke-none" />
+                <div className="relative w-4 h-4 rounded-full overflow-hidden flex-shrink-0">
+                  <Image src="/images/whatsapp-official.png" alt="WhatsApp" fill className="object-cover" />
+                </div>
                 <span>WhatsApp</span>
               </a>
             </div>
@@ -402,17 +404,19 @@ export default function Header() {
             <a
               href={getWhatsAppUrl(
                 BUSINESS_CONFIG.whatsAppNumber1,
-                "Hello A.R Plumbing, I would like to enquire about your plumbing services in Chennai."
+                "Hello A.R Plumbing, I would like to enquire about residential plumbing services in Chennai."
               )}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-btn bg-brand-whatsapp text-white text-sm font-semibold shadow-sm"
             >
-              <MessageCircle className="w-4 h-4 fill-current stroke-none" />
+              <div className="relative w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                <Image src="/images/whatsapp-official.png" alt="WhatsApp" fill className="object-cover" />
+              </div>
               <span>WhatsApp Us</span>
             </a>
             <p className="text-center text-[11px] text-brand-muted pt-1">
-              Chennai, Tamil Nadu • Residential & Commercial
+              Royapettah, Chennai • Within 40 km Radius
             </p>
           </div>
         </div>

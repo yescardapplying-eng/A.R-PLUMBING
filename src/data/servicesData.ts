@@ -17,17 +17,159 @@ export interface ServiceItem {
   contactNumberType: "number1" | "number2"; // number1 = commercial/projects, number2 = residential
 }
 
+export interface ServiceCluster {
+  id: string;
+  title: string;
+  summary: string;
+  icon: string;
+  services: string[];
+}
+
+/**
+ * 6 Primary Service Clusters specified by Client
+ * Focus: 90% Residential (Homes, Flats, Apartments, Rooms) within 40 km of Royapettah
+ */
+export const SERVICE_CLUSTERS: ServiceCluster[] = [
+  {
+    id: "water-supply",
+    title: "Water Supply System",
+    summary: "Domestic water pipelines, overhead tank connections, distribution systems & pressure booster pumps.",
+    icon: "Droplets",
+    services: [
+      "Domestic Water Supply Pipeline Installation",
+      "Hot Water Pipeline Installation",
+      "Cold Water Pipeline Installation",
+      "Concealed Plumbing Installation",
+      "Overhead Water Tank Connection",
+      "Underground Water Tank Connection",
+      "Water Distribution System Installation",
+      "Main Water Supply Line Installation",
+      "Floor-wise Water Supply Distribution",
+      "Booster Pump Pipeline Connection",
+      "Water Pressure Management System",
+      "Water Meter Installation",
+      "Water Valve Installation",
+      "CPVC, UPVC, PVC & PPR Pipe Installation",
+      "Pipe Fitting & Jointing Work"
+    ]
+  },
+  {
+    id: "sanitary-bathroom",
+    title: "Sanitary & Bathroom Installation",
+    summary: "Wash basins, luxury toilets, rain showers, chrome faucets & modern bathroom renovations.",
+    icon: "Bath",
+    services: [
+      "Wash Basin Installation",
+      "Western Toilet / WC Installation",
+      "Indian Toilet Installation (Orissa Pan)",
+      "Wall Hung Toilet Installation",
+      "Urinal Installation",
+      "Bathroom Shower Installation",
+      "Shower Mixer Installation",
+      "Health Faucet Installation",
+      "Bathroom Tap & Faucet Installation",
+      "Bathtub Installation",
+      "Jacuzzi Plumbing Installation",
+      "Bathroom Floor Drain Installation",
+      "Bathroom Plumbing Fittings",
+      "Concealed Flush Tank Installation",
+      "Bathroom Accessories Installation",
+      "Sanitary Ware Fitting",
+      "Bathroom Water Connection",
+      "Bathroom Renovation Plumbing"
+    ]
+  },
+  {
+    id: "drainage-sewerage",
+    title: "Drainage & Sewerage System",
+    summary: "Soil & waste pipes, floor traps, inspection manholes, and odor-free sewer connections.",
+    icon: "Waves",
+    services: [
+      "Soil Pipe Installation",
+      "Waste Pipe Installation",
+      "Floor Trap Installation",
+      "Nahani Trap Installation",
+      "Drainage Pipeline Installation",
+      "Underground Drainage System",
+      "Rainwater Drainage Pipeline",
+      "Kitchen Wastewater Drainage",
+      "Bathroom Wastewater Drainage",
+      "Balcony Drainage Installation",
+      "Terrace Drainage System",
+      "Manhole Installation",
+      "Inspection Chamber Installation",
+      "Sewer Line Connection",
+      "Drainage Line Testing",
+      "Drainage Blockage Removal"
+    ]
+  },
+  {
+    id: "kitchen-plumbing",
+    title: "Kitchen Plumbing",
+    summary: "Kitchen sinks, mixer taps, RO water purifiers, dishwasher drainage & waste lines.",
+    icon: "Utensils",
+    services: [
+      "Kitchen Sink Installation",
+      "Kitchen Sink Faucet Installation",
+      "Kitchen Water Supply Connection",
+      "Kitchen Drainage Connection",
+      "RO Water Purifier Connection",
+      "Dishwasher Water Connection",
+      "Washing Machine Water Connection",
+      "Kitchen Waste Pipe Installation",
+      "Kitchen Mixer Installation",
+      "Grease Trap Installation (Commercial Projects)"
+    ]
+  },
+  {
+    id: "high-rise-plumbing",
+    title: "High-Rise Building Plumbing",
+    summary: "Vertical risers, plumbing shafts, stack pipes, and multi-storey residential building plumbing.",
+    icon: "Layers",
+    services: [
+      "High-Rise Building Plumbing Installation",
+      "Vertical Plumbing Riser Installation",
+      "Plumbing Shaft Installation",
+      "Floor-wise Plumbing Distribution",
+      "Stack Pipe Installation",
+      "Soil, Waste & Vent (SWV) System",
+      "Terrace Plumbing Installation",
+      "Basement Plumbing System",
+      "Podium Drainage System",
+      "Multiple Bathroom Plumbing",
+      "Common Area Plumbing",
+      "Plumbing for Residential Towers",
+      "Plumbing for Multi-Storey Buildings",
+      "Plumbing for Housing Societies",
+      "Plumbing for New Construction Projects"
+    ]
+  },
+  {
+    id: "contracts-management",
+    title: "Plumbing Contract & Management",
+    summary: "Turnkey residential plumbing contracts, site execution, pressure testing & commissioning.",
+    icon: "ClipboardCheck",
+    services: [
+      "Complete Plumbing Contracts (Labor & Material)",
+      "Site Execution & Daily Supervision",
+      "Hydrostatic Leak Testing (7-10 Bar)",
+      "Architectural Drawing Review & Coordination",
+      "Preventive Plumbing Maintenance & Support"
+    ]
+  }
+];
+
 export const SERVICES_DATA: ServiceItem[] = [
   {
     id: "building-plumbing-works",
     slug: "building-plumbing-works",
     title: "Building Plumbing Works",
-    shortDescription: "Complete end-to-end plumbing contracting for newly constructed residential and commercial buildings across Chennai.",
+    shortDescription: "End-to-end residential building plumbing contracting for new houses and apartments in Chennai.",
     category: "building",
     icon: "Building2",
     heroImage: "/images/services/building-plumbing-1.webp",
     secondaryImage: "/images/services/building-plumbing-2.webp",
-    fullDescription: "A.R Plumbing provides turnkey plumbing contract execution for multi-storey residential complexes, commercial buildings, and villa developments in Chennai. From underground sump piping to vertical riser shafts and rooftop overhead tank networks, our experienced plumbers deliver leak-tested installations following Indian standard plumbing codes.",
+    fullDescription: "A.R Plumbing provides turnkey plumbing contract execution for residential apartment complexes, independent villas, and housing societies within 40 km of Royapettah, Chennai. From underground sump piping to vertical riser shafts and rooftop overhead tank networks, our experienced plumbers deliver leak-tested installations following Indian standard plumbing codes.",
     workScope: [
       "Rough-in concealed plumbing during civil brickwork and RCC staging",
       "Vertical water supply riser stacks and pressure loop systems",
@@ -42,10 +184,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Rubber lined GI clamp pipe brackets for vertical shafts"
     ],
     applications: [
+      "Independent houses & duplex villas",
       "Multi-storey residential apartment blocks",
-      "Commercial office buildings & IT spaces",
-      "Gated community villa developments",
-      "Mixed-use residential & retail properties"
+      "Housing societies & residential towers",
+      "Complete home renovation projects"
     ],
     executionProcess: [
       { step: "01", title: "Drawing Review & Site Measurement", desc: "Detailed study of architectural plumbing layouts, shaft coordinates, and pipe sizing calculations." },
@@ -55,31 +197,31 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: "Does A.R Plumbing undertake building plumbing contracts on a turnkey labor and material basis in Chennai?",
-        answer: "Yes, we undertake both labor-only contracts and turnkey material-inclusive contracts based on architectural specifications and developer preferences."
+        question: "Does A.R Plumbing undertake residential building plumbing contracts in Chennai?",
+        answer: "Yes, we undertake both labor contracts and turnkey material-inclusive contracts for residential houses, flats, and apartments within 40 km of Royapettah."
       },
       {
-        question: "At what construction stage should the building plumbing team be mobilized?",
+        question: "At what construction stage should the plumbing team be mobilized?",
         answer: "We recommend engaging our plumbing team during the structural slab and brick masonry phase so that core cuts, sleeve placements, and wall chasing proceed in coordination with civil works."
       },
       {
-        question: "How do you guarantee leak-free joints before wall plastering and tile laying?",
+        question: "How do you guarantee leak-free joints before wall plastering?",
         answer: "We conduct hydrostatic pressure testing on all rough-in lines for a minimum of 24 hours using hydraulic pressure test pumps and calibrated pressure gauges before approving masonry closure."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I visited your website and would like to enquire about Building Plumbing Works for our project in Chennai. Please contact me to discuss.",
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Building Plumbing Works in Chennai.",
     contactNumberType: "number1"
   },
   {
     id: "residential-plumbing-services",
     slug: "residential-plumbing-services",
     title: "Residential Plumbing Services",
-    shortDescription: "Dependable, neat plumbing solutions for individual houses, duplex villas, and residential apartments in Chennai.",
+    shortDescription: "Dependable, neat plumbing solutions for homes, flats, apartments, and villas in Chennai.",
     category: "residential",
     icon: "House",
     heroImage: "/images/services/residential-plumbing-1.webp",
     secondaryImage: "/images/services/residential-plumbing-2.webp",
-    fullDescription: "From solving low water pressure in upper floors to fixing stubborn pipe concealed leakages, A.R Plumbing provides skilled residential plumbing services across Chennai. Our technicians work cleanly, respect your home environment, and use high-grade fittings that deliver long-lasting peace of mind.",
+    fullDescription: "Representing 90% of our core business, A.R Plumbing delivers specialized residential plumbing across homes, flats, apartments, and villas in Chennai. From solving low water pressure in upper floors to fixing concealed pipe leakages, our technicians work cleanly, respect your home, and use high-grade fittings.",
     workScope: [
       "Apartment bathroom pipeline replacement and pressure rectification",
       "Overhead water tank pipeline cleaning, bypass line and valve replacements",
@@ -95,9 +237,9 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     applications: [
       "Individual bungalows & independent houses",
-      "Residential apartment flats",
+      "Residential apartment flats & society homes",
       "Duplex villas and gated residential layouts",
-      "Rental property plumbing renovations"
+      "Room and bathroom plumbing renovations"
     ],
     executionProcess: [
       { step: "01", title: "Diagnostic Site Visit", desc: "Physical inspection of your plumbing issue, water pressure, and pipe layout condition." },
@@ -107,11 +249,11 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: "How quickly can your residential plumbers attend to an urgent plumbing issue in Chennai?",
-        answer: "For residential plumbing calls, we coordinate same-day or next-morning site visits depending on your area in Chennai and technician availability."
+        question: "How quickly can your residential plumbers attend to a home plumbing issue in Chennai?",
+        answer: "For residential plumbing calls within 40 km of Royapettah, we coordinate same-day or next-morning visits based on technician availability."
       },
       {
-        question: "Can you replace old rusted GI metal pipes in an older Chennai apartment with modern CPVC pipes?",
+        question: "Can you replace old rusted GI metal pipes in an older flat with modern CPVC pipes?",
         answer: "Yes, we specialize in replacing corroded, choked GI pipelines with durable, food-grade CPVC pipes, significantly improving water flow and water quality."
       },
       {
@@ -119,25 +261,25 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Both options are flexible. We can source genuine branded materials at competitive rates, or homeowners are welcome to supply their preferred brand fittings."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I need residential plumbing services for my home in Chennai. I would like to discuss the service and appointment availability.",
-    contactNumberType: "number2"
+    whatsappMessage: "Hello A.R Plumbing, I need residential plumbing services for my home in Chennai.",
+    contactNumberType: "number1"
   },
   {
     id: "commercial-plumbing-services",
     slug: "commercial-plumbing-services",
     title: "Commercial Plumbing Services",
-    shortDescription: "Robust, heavy-duty plumbing installations and maintenance for offices, IT parks, retail showrooms, and restaurants.",
+    shortDescription: "Robust, heavy-duty plumbing installations for offices, retail stores, and commercial spaces.",
     category: "commercial",
     icon: "Briefcase",
     heroImage: "/images/services/commercial-plumbing-1.webp",
     secondaryImage: "/images/services/commercial-plumbing-2.webp",
-    fullDescription: "Commercial properties demand high-reliability plumbing engineered for continuous daily usage. A.R Plumbing handles complete water distribution, sensor urinal batteries, commercial kitchen grease traps, and multi-cubicle restroom installations for commercial establishments throughout Chennai.",
+    fullDescription: "While 90% of our work is residential, A.R Plumbing also undertakes commercial plumbing for offices, clinics, retail shops, and commercial buildings within 40 km of Royapettah, Chennai. We handle touchless sensor faucets, commercial urinal batteries, and restaurant drainage.",
     workScope: [
       "Multi-occupancy commercial washroom plumbing and drainage layout",
       "Sensor-operated auto flush valves and touchless faucet waterline installation",
       "Commercial kitchen water supply and high-temperature grease trap drain lines",
       "Fire safety line coordination and auxiliary utility water piping",
-      "Preventive scheduled plumbing maintenance contracts for corporate premises"
+      "Scheduled plumbing maintenance contracts for corporate premises"
     ],
     materialsUsed: [
       "Heavy gauge Schedule 40/80 UPVC and CPVC industrial pipes",
@@ -159,8 +301,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: "Can A.R Plumbing work during night hours or weekends for commercial office fit-outs in Chennai?",
-        answer: "Yes, we regularly execute commercial plumbing projects during non-business hours, weekends, or designated building fit-out shifts to comply with IT park management protocols."
+        question: "Can A.R Plumbing work during off-hours or weekends for commercial office fit-outs in Chennai?",
+        answer: "Yes, we execute commercial plumbing projects during non-business hours, weekends, or designated building fit-out shifts to comply with facility management protocols."
       },
       {
         question: "Do you install sensor taps and commercial auto-flush systems for office restrooms?",
@@ -171,19 +313,19 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Yes, we provide official GST-compliant tax invoicing, project work orders, and formal contractor documentation for corporate and commercial entities."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I am interested in discussing commercial plumbing services for our facility in Chennai. Please contact me regarding requirements.",
-    contactNumberType: "number1"
+    whatsappMessage: "Hello A.R Plumbing, I am interested in discussing commercial plumbing services in Chennai.",
+    contactNumberType: "number2"
   },
   {
     id: "high-rise-building-plumbing",
     slug: "high-rise-building-plumbing",
-    title: "High-Rise Building Plumbing Works",
-    shortDescription: "Specialized pressure-balanced vertical plumbing, PRV zones, and heavy drainage stacks for multi-storey towers.",
+    title: "High-Rise Building Plumbing",
+    shortDescription: "Specialized vertical risers, PRV stations, and stack pipes for multi-storey residential towers.",
     category: "building",
     icon: "Layers",
     heroImage: "/images/services/high-rise-plumbing-1.webp",
     secondaryImage: "/images/services/high-rise-plumbing-2.webp",
-    fullDescription: "High-rise towers present unique hydraulic challenges such as extreme hydrostatic pressure at lower levels, thermal expansion in vertical risers, and drainage siphonage. A.R Plumbing implements pressure-reducing valve (PRV) stations, expansion loops, and anti-siphonage air admittance stacks for multi-storey buildings in Chennai.",
+    fullDescription: "High-rise residential towers present unique hydraulic challenges such as extreme hydrostatic pressure at lower levels, thermal expansion in vertical risers, and drainage siphonage. A.R Plumbing implements pressure-reducing valve (PRV) stations, expansion loops, and anti-siphonage air admittance stacks for multi-storey residential towers in Chennai.",
     workScope: [
       "Zoned vertical water supply distribution with Pressure Reducing Valves (PRVs)",
       "High-velocity vertical soil and waste stacks with acoustic insulation",
@@ -198,15 +340,15 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Epoxy coated steel cantilever clamps and vibration isolators"
     ],
     applications: [
-      "10+ floor residential apartment towers",
-      "Commercial IT skyscraper buildings",
-      "Hospitality hotel towers and hospital multi-tier wings",
-      "Mixed-use high-rise developments across Chennai OMR & Porur"
+      "Multi-storey residential apartment towers",
+      "Housing society residential complexes",
+      "Duplex residential high-rise penthouses",
+      "New construction residential projects across Chennai"
     ],
     executionProcess: [
       { step: "01", title: "Hydraulic Zone Calculation", desc: "Zoning vertical risers into low, mid, and high pressure bands to protect sanitary fixtures." },
       { step: "02", title: "Shaft Structural Bracketing", desc: "Installing heavy-duty anchor supports every floor with thermal expansion allowance." },
-      { step: "03", title: "Stack Jointing & Ring Sealing", desc: "Precision assembly of ring-fit SWR drainage and solvent-welded pressure lines." },
+      { step: "03", title: "Stack Assembly & Ring Sealing", desc: "Precision assembly of ring-fit SWR drainage and solvent-welded pressure lines." },
       { step: "04", title: "Commissioning & Pressure Balancing", desc: "Floor-by-floor dynamic pressure calibration to deliver uniform flow from penthouse to ground floor." }
     ],
     faqs: [
@@ -223,8 +365,8 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Yes, our plumbers are trained in site PPE, shaft safety harnesses, tool tethering, and work-at-height safety protocols mandated on major construction sites."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I visited your website and would like to discuss High-Rise Building Plumbing Works in Chennai. Please contact me.",
-    contactNumberType: "number1"
+    whatsappMessage: "Hello A.R Plumbing, I would like to discuss High-Rise Building Plumbing in Chennai.",
+    contactNumberType: "number2"
   },
   {
     id: "water-supply-pipeline",
@@ -235,13 +377,13 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: "Droplets",
     heroImage: "/images/services/water-supply-1.webp",
     secondaryImage: "/images/services/water-supply-2.webp",
-    fullDescription: "A reliable water supply network requires correct pipe sizing, minimal friction losses, and leak-proof jointing. A.R Plumbing specializes in installing underground municipal incoming lines, overhead tank supply networks, and internal hot and cold potable water piping throughout Chennai properties.",
+    fullDescription: "A reliable water supply network requires correct pipe sizing, minimal friction losses, and leak-proof jointing. A.R Plumbing specializes in installing domestic drinking water lines, hot and cold water pipes, overhead tank supply networks, and concealed potable water piping throughout Chennai homes.",
     workScope: [
-      "Underground metro water / municipal inlet pipeline installation",
-      "Borewell and submersible pump discharge line connection to overhead tank",
-      "Dual piping systems for domestic water and treated STP flush water",
+      "Domestic water supply pipeline installation (Hot and Cold lines)",
+      "Main water supply line & floor-wise water distribution setup",
+      "CPVC, UPVC, PVC & PPR pipe installation with certified solvent weld",
       "Terrace water distribution manifold headers with dedicated cut-off valves",
-      "Solar water heater and central heat pump hot water circulation loops"
+      "Water meter and pressure control valve installation"
     ],
     materialsUsed: [
       "Lead-free CPVC (Chlorinated Polyvinyl Chloride) conforming to IS 15778",
@@ -250,10 +392,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "UV-resistant outdoor insulated pipe coatings for terrace sun exposure"
     ],
     applications: [
-      "Newly constructed residential houses and villas",
+      "Independent houses & residential flats",
       "Apartment complex terrace distribution overhauls",
-      "Hospital water networks and laboratory pure water piping",
-      "Hotels and commercial catering water supply infrastructure"
+      "Borewell to overhead tank pipeline connections",
+      "Hot and cold concealed bathroom water supply"
     ],
     executionProcess: [
       { step: "01", title: "Flow Rate & Diameter Planning", desc: "Calculating required flow velocities and sizing supply headers to eliminate pressure drops." },
@@ -275,25 +417,25 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "This is caused by undersized supply headers or series branching. We install looped distribution manifolds with correctly sized pipe diameters to ensure constant multi-point water pressure."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Water Supply Pipeline Installation in Chennai. Please contact me.",
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Water Supply Pipeline Installation in Chennai.",
     contactNumberType: "number1"
   },
   {
     id: "drainage-sewerage-systems",
     slug: "drainage-sewerage-systems",
     title: "Drainage & Sewerage Systems",
-    shortDescription: "Odor-free, self-cleansing SWR drainage, chamber building, and municipal sewer connectivity across Chennai.",
+    shortDescription: "Odor-free, self-cleansing SWR drainage, soil pipes, inspection chambers, and sewer connections.",
     category: "building",
     icon: "Waves",
     heroImage: "/images/services/drainage-sewerage-1.webp",
     secondaryImage: "/images/services/drainage-sewerage-2.webp",
-    fullDescription: "A well-engineered drainage system is invisible and odorless. A.R Plumbing installs gravity-fed soil, waste, and rainwater (SWR) systems, inspection chambers, grease interceptors, and sewer line interconnections that keep Chennai residences and commercial properties clean and hygienic.",
+    fullDescription: "A well-engineered drainage system is invisible and odorless. A.R Plumbing installs gravity-fed soil and waste pipes, nahani traps, floor traps, rainwater drainage, and underground inspection chambers that keep Chennai homes clean, hygienic, and odor-free.",
     workScope: [
-      "Soil and waste SWR vertical stack installation with access cleanout doors",
-      "P-trap and multi-floor trap installation with deep water seals to prevent sewer odor",
-      "External brick masonry and precast RCC sewer inspection chambers (manholes)",
-      "Connection from building boundary chamber to Chennai CMWSSB municipal sewer mains",
-      "Stormwater drainage channels and rainwater recharge pit connectivity"
+      "Soil pipe and waste pipe vertical stack installation with cleanout doors",
+      "P-trap, nahani trap, and multi-floor trap installation with deep water seals",
+      "Kitchen and bathroom wastewater drainage pipeline routing",
+      "External brick masonry inspection chambers (manholes) and sewer connections",
+      "Rainwater harvesting downspouts and balcony drainage lines"
     ],
     materialsUsed: [
       "SWR PVC pipes (Type A for rainwater, Type B for soil & waste) IS 13592",
@@ -302,10 +444,10 @@ export const SERVICES_DATA: ServiceItem[] = [
       "UPVC nahani traps and multi-inlet floor traps with SS anti-cockroach jalis"
     ],
     applications: [
-      "Residential houses and gated layouts",
-      "Apartment community central drainage shafts",
-      "Commercial kitchens, bakeries, and restaurant grease lines",
-      "Industrial storm water and greywater routing"
+      "Residential houses and apartment flats",
+      "Balcony and terrace rainwater drainage",
+      "Kitchen and bathroom wastewater lines",
+      "Underground drainage & municipal sewer connectivity"
     ],
     executionProcess: [
       { step: "01", title: "Invert Level & Gradient Survey", desc: "Setting precise 1:40 to 1:60 gravity slopes with spirit levels to guarantee self-cleansing velocity." },
@@ -319,7 +461,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "We replace shallow or dry traps with deep-seal (50mm minimum water seal) anti-foul traps and ensure proper rooftop vent stack ventilation to prevent siphonage."
       },
       {
-        question: "Can A.R Plumbing connect our private building drainage to Chennai Metro Water (CMWSSB) street sewer lines?",
+        question: "Can A.R Plumbing connect our home drainage to municipal sewer lines?",
         answer: "Yes, we construct the terminal boundary inspection chamber and lay the connecting slope line up to the authorized municipal road sewer manhole."
       },
       {
@@ -327,25 +469,25 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Ring-fit SWR joints allow for natural thermal expansion and building settlement without cracking, ensuring long-term leak-free drainage in multi-storey buildings."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I need Drainage & Sewerage System work in Chennai. Please contact me regarding site inspection.",
+    whatsappMessage: "Hello A.R Plumbing, I need Drainage & Sewerage System work in Chennai.",
     contactNumberType: "number1"
   },
   {
     id: "bathroom-plumbing-works",
     slug: "bathroom-plumbing-works",
     title: "Bathroom Plumbing Works",
-    shortDescription: "Complete modern bathroom plumbing renovation, diverter installation, and concealed pipeline modernization.",
+    shortDescription: "Luxury bathroom plumbing, rain shower diverters, mixer taps, and complete bathroom renovations.",
     category: "residential",
     icon: "Bath",
     heroImage: "/images/services/bathroom-plumbing-1.webp",
     secondaryImage: "/images/services/bathroom-plumbing-2.webp",
-    fullDescription: "From luxury multi-function diverters to complete bathroom plumbing overhauls, A.R Plumbing delivers precision plumbing alignment. We ensure hot and cold water mixer lines are perfectly centered, drain slopes prevent water pooling, and tile cutouts match fixture escutcheon plates seamlessly.",
+    fullDescription: "From luxury multi-function concealed diverters to complete bathroom plumbing overhauls, A.R Plumbing delivers precision plumbing alignment. We ensure hot and cold water mixer lines are perfectly centered, drain slopes prevent water pooling, and tile cutouts match fixture escutcheon plates seamlessly.",
     workScope: [
       "Concealed hot and cold water plumbing for single-lever diverters and thermostatic mixers",
       "Overhead rain shower arm and hand shower wall outlet piping",
-      "Wall-hung toilet concealed cistern (flush tank) framing and inlet/outlet connections",
+      "Shower mixer installation, health faucets, and bathtub/jacuzzi plumbing",
       "Shower partition linear channel drain and floor trap installation",
-      "Health faucet, geyser inlet/outlet, and vanity counter basin plumbing"
+      "Bathroom renovation plumbing with zero tile damage in adjoining rooms"
     ],
     materialsUsed: [
       "SDR 11 CPVC pipes and solid brass concealed diverter bodies (Jaquar, Kohler, Grohe)",
@@ -356,8 +498,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     applications: [
       "New luxury villa and apartment bathrooms",
       "Older bathroom renovation and remodel projects",
-      "Hotel guest room bathrooms and executive suites",
-      "Master bedroom en-suite plumbing upgrades"
+      "Master bedroom en-suite plumbing upgrades",
+      "Guest bathroom fixtures and shower mixer setups"
     ],
     executionProcess: [
       { step: "01", title: "Tile Layout & Fixture Marking", desc: "Collaborating with tile masons to establish exact finished floor levels (FFL) and centerlines." },
@@ -368,7 +510,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     faqs: [
       {
         question: "Can you install concealed diverters from premium brands like Jaquar, Kohler, and Grohe?",
-        answer: "Yes, our plumbers are trained in installing concealed diverter bodies, thermostatic controllers, and multi-outlet shower valves from all leading Indian and international brands."
+        answer: "Yes, our plumbers are trained in installing concealed diverter bodies, thermostatic controllers, and multi-outlet shower valves from all leading brands."
       },
       {
         question: "How do you coordinate bathroom plumbing with tile contractors in Chennai?",
@@ -379,8 +521,8 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Yes, we regularly convert exposed legacy piping into sleek concealed wall piping during bathroom renovations, giving older Chennai homes a contemporary look."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Bathroom Plumbing Works in Chennai. Please contact me.",
-    contactNumberType: "number2"
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Bathroom Plumbing Works in Chennai.",
+    contactNumberType: "number1"
   },
   {
     id: "sanitary-ware-installation",
@@ -431,8 +573,8 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "We primarily provide expert installation services. You can purchase your preferred brand ceramics, or we can assist in procuring them from authorized Chennai dealers."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I visited your website and would like to enquire about Sanitary Ware Installation in Chennai.",
-    contactNumberType: "number2"
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Sanitary Ware Installation in Chennai.",
+    contactNumberType: "number1"
   },
   {
     id: "toilet-installation",
@@ -443,7 +585,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: "CheckCircle",
     heroImage: "/images/services/toilet-installation-1.webp",
     secondaryImage: "/images/services/toilet-installation-2.webp",
-    fullDescription: "Proper toilet installation is essential for hygiene and odor prevention. A.R Plumbing specializes in installing both contemporary Western commodes and traditional Indian squatting toilet pans (Orissa Pan / Asian Pan) with sunken slab waterproofing coordination and deep P-trap drainage across Chennai.",
+    fullDescription: "Proper toilet installation is essential for hygiene and odor prevention. A.R Plumbing specializes in installing both contemporary Western commodes and traditional Indian squatting toilet pans (Orissa Pan / Asian Pan) with sunken slab waterproofing coordination and deep P-trap drainage across Chennai homes.",
     workScope: [
       "Indian Orissa Pan / squat toilet seat setting in sunken slabs with sand filling",
       "Deep P-trap and S-trap connection with airtight cement mortar seals",
@@ -483,8 +625,8 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "This is usually caused by a worn-out flapper valve or faulty inlet float mechanism. Our technicians replace the internal siphon kit with durable, water-saving components."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Toilet and Indian Toilet Seat Installation in Chennai. Please contact me.",
-    contactNumberType: "number2"
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Toilet and Indian Toilet Seat Installation in Chennai.",
+    contactNumberType: "number1"
   },
   {
     id: "wash-basin-installation",
@@ -495,7 +637,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: "ShieldCheck",
     heroImage: "/images/services/wash-basin-1.webp",
     secondaryImage: "/images/services/wash-basin-2.webp",
-    fullDescription: "A well-installed wash basin combines sturdy mounting with leak-proof drainage. A.R Plumbing installs dining area hand-wash sinks, bathroom vanity countertop basins, and space-saving corner basins in Chennai homes and restaurants with concealed bottle traps and smooth faucet operation.",
+    fullDescription: "A well-installed wash basin combines sturdy mounting with leak-proof drainage. A.R Plumbing installs dining area hand-wash sinks, bathroom vanity countertop basins, and space-saving corner basins in Chennai homes with concealed bottle traps and smooth faucet operation.",
     workScope: [
       "Wall-mounted ceramic basin installation with heavy lag bolt fixings",
       "Full pedestal and semi-pedestal wash basin leveling and waste concealment",
@@ -535,8 +677,8 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Yes, we install under-counter, semi-recessed, and tabletop vanity basins with matching tall pillar taps, ensuring watertight countertop seals."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Wash Basin Installation in Chennai. Please contact me.",
-    contactNumberType: "number2"
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Wash Basin Installation in Chennai.",
+    contactNumberType: "number1"
   },
   {
     id: "kitchen-plumbing",
@@ -547,7 +689,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: "Utensils",
     heroImage: "/images/services/kitchen-plumbing-1.webp",
     secondaryImage: "/images/services/kitchen-plumbing-2.webp",
-    fullDescription: "Kitchen plumbing must handle greasy wash water, high temperatures, and multiple appliance hookups. A.R Plumbing installs stainless steel and granite composite kitchen sinks, twin-handle sink mixers, reverse osmosis (RO) purifier taps, and dishwasher water and drain lines across Chennai kitchens.",
+    fullDescription: "Kitchen plumbing must handle greasy wash water, high temperatures, and multiple appliance hookups. A.R Plumbing installs single & double bowl kitchen sinks, sink mixer taps, RO water purifier connections, dishwasher lines, and washing machine connections across Chennai homes.",
     workScope: [
       "Single and double bowl stainless steel / granite sink waste fitting",
       "Deck-mounted 360° swivel spout sink mixer and pull-out spray tap plumbing",
@@ -587,8 +729,8 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Yes, we install both wall-mounted and table-mounted kitchen sink mixers connected to your kitchen instant geyser or solar hot water line."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Kitchen Plumbing services in Chennai. Please contact me.",
-    contactNumberType: "number2"
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Kitchen Plumbing services in Chennai.",
+    contactNumberType: "number1"
   },
   {
     id: "pipe-installation-replacement",
@@ -599,7 +741,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: "Wrench",
     heroImage: "/images/services/pipe-replacement-1.webp",
     secondaryImage: "/images/services/pipe-replacement-2.webp",
-    fullDescription: "Many older buildings in Chennai suffer from low water pressure and rusty brown water due to internal mineral scaling and rust in old GI (galvanized iron) pipes. A.R Plumbing replaces aging pipe networks with modern, lead-free CPVC and UPVC pipes, restoring crystal-clear water flow throughout your property.",
+    fullDescription: "Many older homes in Chennai suffer from low water pressure and rusty brown water due to internal mineral scaling in old GI metal pipes. A.R Plumbing replaces aging pipe networks with modern, lead-free CPVC and UPVC pipes, restoring crystal-clear water flow throughout your property.",
     workScope: [
       "Bypassing and replacing old rusted GI pipes with NSF-certified CPVC pipes",
       "Rooftop external distribution header replacement with UV-resistant UPVC",
@@ -640,7 +782,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       }
     ],
     whatsappMessage: "Hello A.R Plumbing, I visited your website and would like to enquire about Pipe Installation & Replacement in Chennai.",
-    contactNumberType: "number2"
+    contactNumberType: "number1"
   },
   {
     id: "plumbing-leakage-repair",
@@ -651,7 +793,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: "AlertCircle",
     heroImage: "/images/services/leakage-repair-1.webp",
     secondaryImage: "/images/services/leakage-repair-2.webp",
-    fullDescription: "Undetected plumbing leaks can cause structural dampness, peeling paint, high water bills, and mold growth. A.R Plumbing uses methodical isolation testing to identify the exact origin of concealed water leaks in Chennai homes and buildings, repairing joints permanently with minimal structural disturbance.",
+    fullDescription: "Undetected plumbing leaks can cause structural dampness, peeling paint, high water bills, and mold growth. A.R Plumbing uses methodical isolation testing to identify the exact origin of concealed water leaks in Chennai homes, repairing joints permanently with minimal structural disturbance.",
     workScope: [
       "Acoustic and pressure drop isolation testing for concealed wall pipelines",
       "Ceiling seepage and bathroom sunken slab drainage leak identification",
@@ -688,11 +830,11 @@ export const SERVICES_DATA: ServiceItem[] = [
       },
       {
         question: "Do you offer emergency leakage repair services in Chennai?",
-        answer: "Yes, for urgent burst pipes, uncontrollable overhead tank overflows, or main line leaks, we prioritize rapid response to isolate and repair the fault."
+        answer: "Yes, for urgent burst pipes, uncontrollable overhead tank overflows, or main line leaks within 40 km of Royapettah, we prioritize rapid response."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I have an urgent Plumbing Leakage issue in Chennai. Please contact me to arrange an inspection.",
-    contactNumberType: "number2"
+    whatsappMessage: "Hello A.R Plumbing, I have an urgent Plumbing Leakage issue in Chennai. Please contact me.",
+    contactNumberType: "number1"
   },
   {
     id: "water-tank-connections",
@@ -703,7 +845,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: "Container",
     heroImage: "/images/services/water-tank-1.webp",
     secondaryImage: "/images/services/water-tank-2.webp",
-    fullDescription: "Your water storage infrastructure is the heart of your building's water supply. A.R Plumbing designs and executes complete tank plumbing—including multi-tank balancing headers, automatic float switches, wash-out valves, and air vents—preventing overflows, airlocks, and water contamination across Chennai properties.",
+    fullDescription: "Your water storage infrastructure is the heart of your home water supply. A.R Plumbing designs and executes complete tank plumbing—including multi-tank balancing headers, automatic float switches, wash-out valves, and air vents—preventing overflows, airlocks, and water contamination across Chennai properties.",
     workScope: [
       "Rooftop multi-tank interconnection and water balancing manifold lines",
       "Underground RCC sump delivery and foot valve suction line installation",
@@ -719,8 +861,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     applications: [
       "Residential houses and apartment building rooftops",
-      "Commercial office buildings and hospital water storage",
-      "Industrial overhead reserve tanks and process water storage",
+      "Underground sump to overhead tank piping networks",
+      "Multi-tank water balancing installations",
       "Replacement of cracked, leaking plastic tank fittings"
     ],
     executionProcess: [
@@ -743,7 +885,7 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "This is usually caused by a faulty non-return valve (NRV) on a booster line allowing back-siphonage, or a degraded mechanical float ball valve. We replace and tune these valves."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I visited your website and would like to enquire about Water Tank Connections in Chennai.",
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Water Tank Connections in Chennai.",
     contactNumberType: "number1"
   },
   {
@@ -755,7 +897,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: "Gauge",
     heroImage: "/images/services/water-pump-1.webp",
     secondaryImage: "/images/services/water-pump-2.webp",
-    fullDescription: "Consistent water pressure requires correctly sized pumping equipment and vibration-free plumbing connections. A.R Plumbing installs automatic pressure booster pumps, underground sump monobloc pumps, and borewell submersible lines with proper non-return valves and electrical coordination across Chennai.",
+    fullDescription: "Consistent water pressure requires correctly sized pumping equipment and vibration-free plumbing connections. A.R Plumbing installs automatic pressure booster pumps, underground sump monobloc pumps, and borewell submersible lines with proper non-return valves and electrical coordination across Chennai homes.",
     workScope: [
       "Automatic hydro-pneumatic pressure booster pump installation with pressure tank",
       "Underground sump monobloc motor setup with priming chambers and NRVs",
@@ -795,19 +937,19 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Yes, we install both magnetic float sensor switches and electronic water level controllers that automate motor operation and prevent water waste."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Water Pump Installation in Chennai. Please contact me.",
+    whatsappMessage: "Hello A.R Plumbing, I would like to enquire about Water Pump Installation in Chennai.",
     contactNumberType: "number1"
   },
   {
     id: "plumbing-maintenance-repair",
     slug: "plumbing-maintenance-repair",
     title: "Plumbing Maintenance & Repair",
-    shortDescription: "Annual maintenance contracts (AMC) and on-demand maintenance for apartment societies and commercial buildings.",
+    shortDescription: "Annual maintenance contracts (AMC) and on-demand maintenance for apartment societies and homes.",
     category: "commercial",
     icon: "ClipboardCheck",
     heroImage: "/images/services/plumbing-maintenance-1.webp",
     secondaryImage: "/images/services/plumbing-maintenance-2.webp",
-    fullDescription: "Preventive maintenance prevents catastrophic pipe bursts, motor burnout, and sewage backups. A.R Plumbing offers structured plumbing maintenance services and annual maintenance contracts (AMC) for residential housing societies, IT parks, commercial complexes, and institutions across Chennai.",
+    fullDescription: "Preventive maintenance prevents catastrophic pipe bursts, motor burnout, and sewage backups. A.R Plumbing offers structured plumbing maintenance services and annual maintenance contracts (AMC) for residential housing societies, apartment blocks, and commercial premises across Chennai.",
     workScope: [
       "Quarterly inspection of vertical plumbing shafts, valves, and water meters",
       "Overhead and underground storage tank float valve and overflow testing",
@@ -823,8 +965,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     applications: [
       "Residential apartment welfare associations (RWAs) and societies",
+      "Independent housing communities and villas",
       "Commercial office complexes and IT tech parks",
-      "Hospitals, nursing homes, and educational institutions",
       "Hotels, serviced apartments, and dining establishments"
     ],
     executionProcess: [
@@ -843,11 +985,11 @@ export const SERVICES_DATA: ServiceItem[] = [
         answer: "Before the monsoon, we clear all terrace storm drains, desilt ground-level inspection chambers, verify non-return valves, and ensure rainwater harvesting recharge pits are free of blockage."
       },
       {
-        question: "Can you provide a dedicated on-site plumber for large commercial campuses in Chennai?",
-        answer: "Yes, for large commercial facilities, IT parks, and institutions, we provide trained on-site plumbing personnel for continuous daily operation and prompt maintenance."
+        question: "Can you provide a dedicated on-site plumber for large residential communities in Chennai?",
+        answer: "Yes, for large residential communities and societies, we provide trained on-site plumbing personnel for continuous daily operation and prompt maintenance."
       }
     ],
-    whatsappMessage: "Hello A.R Plumbing, I visited your website and would like to discuss Plumbing Maintenance & AMC services in Chennai.",
+    whatsappMessage: "Hello A.R Plumbing, I would like to discuss Plumbing Maintenance services in Chennai.",
     contactNumberType: "number1"
   }
 ];

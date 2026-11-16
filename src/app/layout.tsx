@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import MobileStickyBar from "@/components/MobileStickyBar";
 import { BUSINESS_CONFIG } from "@/lib/config";
 
 const manrope = Manrope({
@@ -157,7 +156,6 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <FloatingWhatsApp />
-        <MobileStickyBar />
       </body>
     </html>
   );
