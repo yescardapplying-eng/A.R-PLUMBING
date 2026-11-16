@@ -21,7 +21,10 @@ export interface ServiceCluster {
   id: string;
   title: string;
   summary: string;
+  shortIntro: string; // 10-12 words
+  image: string;
   icon: string;
+  keyPoints: string[]; // 2-3 words each
   services: string[];
 }
 
@@ -34,7 +37,10 @@ export const SERVICE_CLUSTERS: ServiceCluster[] = [
     id: "water-supply",
     title: "Water Supply System",
     summary: "Domestic water pipelines, overhead tank connections, distribution systems & pressure booster pumps.",
+    shortIntro: "Domestic CPVC and UPVC pipeline installation with pressure testing.",
+    image: "/images/services/water-supply-1.webp",
     icon: "Droplets",
+    keyPoints: ["CPVC/UPVC Pipelines", "Booster Pump Setup", "Overhead Tank Header"],
     services: [
       "Domestic Water Supply Pipeline Installation",
       "Hot Water Pipeline Installation",
@@ -57,7 +63,10 @@ export const SERVICE_CLUSTERS: ServiceCluster[] = [
     id: "sanitary-bathroom",
     title: "Sanitary & Bathroom Installation",
     summary: "Wash basins, luxury toilets, rain showers, chrome faucets & modern bathroom renovations.",
+    shortIntro: "Concealed shower diverters, wall-hung toilets, and bathroom plumbing renovations.",
+    image: "/images/services/bathroom-plumbing-1.webp",
     icon: "Bath",
+    keyPoints: ["Wall-Hung Commodes", "Single Lever Diverters", "Leak-Tested Fittings"],
     services: [
       "Wash Basin Installation",
       "Western Toilet / WC Installation",
@@ -83,7 +92,10 @@ export const SERVICE_CLUSTERS: ServiceCluster[] = [
     id: "drainage-sewerage",
     title: "Drainage & Sewerage System",
     summary: "Soil & waste pipes, floor traps, inspection manholes, and odor-free sewer connections.",
+    shortIntro: "Odor-free SWR drainage pipelines, floor traps, and chamber connections.",
+    image: "/images/services/drainage-sewerage-1.webp",
     icon: "Waves",
+    keyPoints: ["Odor-Free Traps", "SWR Waste Stacks", "Chamber Connections"],
     services: [
       "Soil Pipe Installation",
       "Waste Pipe Installation",
@@ -107,7 +119,10 @@ export const SERVICE_CLUSTERS: ServiceCluster[] = [
     id: "kitchen-plumbing",
     title: "Kitchen Plumbing",
     summary: "Kitchen sinks, mixer taps, RO water purifiers, dishwasher drainage & waste lines.",
+    shortIntro: "Modular kitchen sink fitting, RO purifiers, and dishwasher drainage.",
+    image: "/images/services/kitchen-plumbing-1.webp",
     icon: "Utensils",
+    keyPoints: ["Sink & Mixer Taps", "RO Purifier Setup", "Dishwasher Drainage"],
     services: [
       "Kitchen Sink Installation",
       "Kitchen Sink Faucet Installation",
@@ -125,7 +140,10 @@ export const SERVICE_CLUSTERS: ServiceCluster[] = [
     id: "high-rise-plumbing",
     title: "High-Rise Building Plumbing",
     summary: "Vertical risers, plumbing shafts, stack pipes, and multi-storey residential building plumbing.",
+    shortIntro: "Vertical riser stacks, plumbing shafts, and floor pressure management.",
+    image: "/images/services/high-rise-plumbing-1.webp",
     icon: "Layers",
+    keyPoints: ["Vertical Risers", "Shaft Piping", "Pressure Management"],
     services: [
       "High-Rise Building Plumbing Installation",
       "Vertical Plumbing Riser Installation",
@@ -148,7 +166,10 @@ export const SERVICE_CLUSTERS: ServiceCluster[] = [
     id: "contracts-management",
     title: "Plumbing Contract & Management",
     summary: "Turnkey residential plumbing contracts, site execution, pressure testing & commissioning.",
+    shortIntro: "Turnkey residential plumbing contracts, site execution, and daily supervision.",
+    image: "/images/services/building-plumbing-1.webp",
     icon: "ClipboardCheck",
+    keyPoints: ["Turnkey Contracts", "Hydrostatic Testing", "Daily Supervision"],
     services: [
       "Complete Plumbing Contracts (Labor & Material)",
       "Site Execution & Daily Supervision",

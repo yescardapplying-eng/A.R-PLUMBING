@@ -64,47 +64,71 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 6 Primary Service Clusters Detail Section */}
+      {/* 6 Primary Service Clusters Detail Section (Image + Short Intro + Key Points + WhatsApp CTA) */}
       <section className="py-16 sm:py-20 bg-brand-offwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Categorized Services"
             title="Our 6 Core Service Clusters"
-            subtitle="Explore all specialized domestic plumbing works categorized for clear navigation."
+            subtitle="Explore our specialized residential plumbing works categorized for clear navigation."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {SERVICE_CLUSTERS.map((cluster, idx) => (
               <AnimateReveal key={cluster.id} animation="fade-up" delay={idx * 0.1}>
-                <div className="bg-white rounded-card border border-brand-border p-6 shadow-card hover:shadow-cardHover transition-all h-full flex flex-col justify-between">
+                <div className="bg-white rounded-card border border-brand-border overflow-hidden shadow-card hover:shadow-[0_8px_30px_rgba(23,105,170,0.12)] hover:border-brand-blue/50 transition-all duration-300 h-full flex flex-col justify-between group hover:-translate-y-1">
                   <div>
-                    <div className="w-12 h-12 rounded-lg bg-brand-lightBlue text-brand-blue flex items-center justify-center mb-4">
-                      {cluster.id === "water-supply" && <Droplets className="w-6 h-6" />}
-                      {cluster.id === "sanitary-bathroom" && <Bath className="w-6 h-6" />}
-                      {cluster.id === "drainage-sewerage" && <Waves className="w-6 h-6" />}
-                      {cluster.id === "kitchen-plumbing" && <Utensils className="w-6 h-6" />}
-                      {cluster.id === "high-rise-plumbing" && <Layers className="w-6 h-6" />}
-                      {cluster.id === "contracts-management" && <ClipboardCheck className="w-6 h-6" />}
+                    {/* Realistic Service Image */}
+                    <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-slate-100">
+                      <Image
+                        src={cluster.image}
+                        alt={`${cluster.title} - A.R Plumbing Chennai`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                      {/* Floating Category Badge with Icon */}
+                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brand-navy text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm flex items-center gap-1.5 border border-slate-100 group-hover:border-brand-blue/30 transition-colors">
+                        {cluster.id === "water-supply" && <Droplets className="w-3.5 h-3.5 text-brand-blue" />}
+                        {cluster.id === "sanitary-bathroom" && <Bath className="w-3.5 h-3.5 text-brand-blue" />}
+                        {cluster.id === "drainage-sewerage" && <Waves className="w-3.5 h-3.5 text-brand-blue" />}
+                        {cluster.id === "kitchen-plumbing" && <Utensils className="w-3.5 h-3.5 text-brand-blue" />}
+                        {cluster.id === "high-rise-plumbing" && <Layers className="w-3.5 h-3.5 text-brand-blue" />}
+                        {cluster.id === "contracts-management" && <ClipboardCheck className="w-3.5 h-3.5 text-brand-blue" />}
+                        <span>Verified Category</span>
+                      </div>
                     </div>
 
-                    <h3 className="font-heading font-bold text-xl text-brand-navy mb-2">
-                      {cluster.title}
-                    </h3>
-                    <p className="text-xs text-brand-muted leading-relaxed mb-4">
-                      {cluster.summary}
-                    </p>
+                    {/* Content */}
+                    <div className="p-5 sm:p-6">
+                      <h3 className="font-heading font-bold text-xl text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+                        {cluster.title}
+                      </h3>
 
-                    <div className="space-y-1.5 pt-3 border-t border-slate-100">
-                      {cluster.services.map((item, sIdx) => (
-                        <div key={sIdx} className="flex items-start gap-2 text-xs text-brand-text">
-                          <span className="text-brand-orange font-bold mt-0.5">•</span>
-                          <span>{item}</span>
-                        </div>
-                      ))}
+                      {/* Short 10-12 word intro */}
+                      <p className="text-xs sm:text-sm text-brand-muted leading-relaxed mb-4">
+                        {cluster.shortIntro}
+                      </p>
+
+                      {/* 2-3 Word Key Point Pills */}
+                      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                        {cluster.keyPoints.map((point, pIdx) => (
+                          <span
+                            key={pIdx}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-lightBlue/70 text-brand-blue text-[11px] font-semibold"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
+                            {point}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-100">
+                  {/* Actions: View Services + WhatsApp */}
+                  <div className="p-5 sm:p-6 pt-0">
                     <a
                       href={getWhatsAppUrl(
                         BUSINESS_CONFIG.whatsAppNumber1,
@@ -112,9 +136,9 @@ export default function ServicesPage() {
                       )}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-btn bg-brand-whatsapp text-white text-xs font-semibold shadow-sm hover:bg-brand-whatsappHover transition-all"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-btn bg-brand-whatsapp text-white text-xs sm:text-sm font-semibold shadow-sm hover:bg-brand-whatsappHover transition-all active:scale-95"
                     >
-                      <div className="relative w-3.5 h-3.5 rounded-full overflow-hidden flex-shrink-0">
+                      <div className="relative w-4 h-4 rounded-full overflow-hidden flex-shrink-0">
                         <Image src="/images/whatsapp-official.png" alt="WhatsApp" fill className="object-cover" />
                       </div>
                       <span>Enquire on WhatsApp</span>
@@ -182,57 +206,25 @@ export default function ServicesPage() {
 
             <div className="p-6 rounded-card border border-brand-border bg-white shadow-sm">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-orange">
-                Drainage & Sewerage
+                Drainage Stacks
               </span>
               <h3 className="text-lg font-bold font-heading text-brand-navy mt-1 mb-2">
-                SWR Ring-Fit PVC (IS 13592)
+                Ring-Fit SWR Soil & Waste (IS 13592)
               </h3>
               <p className="text-xs sm:text-sm text-brand-muted leading-relaxed">
-                Type B soil and waste drainage pipes with elastomeric rubber ring seals for odor-free flow.
+                Leak-proof rubber ring jointed pipes that absorb building vibration and prevent odor leakage.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* EXACTLY THREE FAQs FOR SERVICES OVERVIEW */}
+      {/* FAQs */}
       <FAQAccordion
         faqs={SERVICES_OVERVIEW_FAQS}
-        title="Plumbing Services — Frequently Asked Questions"
-        subtitle="Important information regarding contracts, materials, and emergency response in Chennai."
+        title="Services — Frequently Asked Questions"
+        subtitle="Common questions regarding contracts, material procurement, and pricing."
       />
-
-      {/* CTA */}
-      <section className="py-14 sm:py-16 bg-brand-navy text-white text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white">
-            Need a Residential Plumbing Estimate?
-          </h2>
-          <p className="text-sm sm:text-base text-slate-300">
-            Share your requirements directly with A.R Plumbing on WhatsApp for prompt scheduling within 40 km of Royapettah.
-          </p>
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-btn bg-brand-whatsapp text-white font-semibold text-sm shadow-whatsapp hover:bg-brand-whatsappHover transition-all"
-            >
-              <div className="relative w-4 h-4 rounded-full overflow-hidden flex-shrink-0">
-                <Image src="/images/whatsapp-official.png" alt="WhatsApp" fill className="object-cover" />
-              </div>
-              <span>WhatsApp Our Team</span>
-            </a>
-            <a
-              href={getPhoneUrl(BUSINESS_CONFIG.phoneNumber1)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-btn bg-white text-brand-navy font-semibold text-sm hover:bg-slate-100 transition-all"
-            >
-              <Phone className="w-4 h-4 text-brand-orange" />
-              <span>Call: {BUSINESS_CONFIG.phoneNumber1Display}</span>
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

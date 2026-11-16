@@ -111,7 +111,7 @@ export default function Header() {
             >
               <div className="relative w-36 sm:w-44 md:w-48 h-8 sm:h-9 md:h-10">
                 <Image
-                  src="/images/ar-plumbing-horizontal-logo.png"
+                  src="/images/ar-plumbing-horizontal-logo-tight.png"
                   alt="A.R Plumbing - Residential, Commercial, Projects"
                   fill
                   priority
@@ -300,9 +300,9 @@ export default function Header() {
         >
           {/* Menu Header */}
           <div className="p-3.5 border-b border-brand-border flex items-center justify-between bg-brand-offwhite">
-            <div className="relative w-32 h-8">
+            <div className="relative w-36 h-9">
               <Image
-                src="/images/ar-plumbing-horizontal-logo.png"
+                src="/images/ar-plumbing-horizontal-logo-tight.png"
                 alt="A.R Plumbing Logo"
                 fill
                 className="object-contain object-left"

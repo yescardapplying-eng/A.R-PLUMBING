@@ -36,14 +36,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 pb-10 border-b border-slate-700/80">
           {/* Column 1: Company Profile & Single Clean Logo */}
           <div className="space-y-4">
-            {/* Single, pristine, high-resolution horizontal logo */}
-            <div className="inline-block p-1.5 px-3 rounded-lg bg-white shadow-sm border border-white/20">
-              <div className="relative w-44 sm:w-48 h-10 sm:h-11">
+            {/* Perfectly sized, prominent logo with minimal tight white padding */}
+            <div className="inline-flex items-center justify-center p-2 rounded-xl bg-white shadow-md border border-slate-100">
+              <div className="relative w-48 sm:w-56 h-13 sm:h-15">
                 <Image
-                  src="/images/ar-plumbing-horizontal-logo.png"
+                  src="/images/ar-plumbing-horizontal-logo-tight.png"
                   alt="A.R Plumbing - Residential, Commercial, Projects"
                   fill
-                  className="object-contain object-left"
+                  className="object-contain object-center"
+                  sizes="(max-width: 640px) 200px, 240px"
                 />
               </div>
             </div>

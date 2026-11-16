@@ -363,45 +363,55 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {verifiedClusters.map((cluster, idx) => (
               <AnimateReveal key={cluster.id} animation="fade-up" delay={idx * 0.1}>
-                {/* Interactive Card with icon animation and glowing border effect */}
-                <div className="bg-white rounded-card border border-brand-border p-6 shadow-card hover:shadow-[0_0_25px_rgba(23,105,170,0.15)] hover:border-brand-blue/60 transition-all duration-300 flex flex-col justify-between h-full group hover:-translate-y-1">
+                {/* Visual Card with image, short intro, key points, and WhatsApp */}
+                <div className="bg-white rounded-card border border-brand-border overflow-hidden shadow-card hover:shadow-[0_8px_30px_rgba(23,105,170,0.14)] hover:border-brand-blue/50 transition-all duration-300 flex flex-col justify-between h-full group hover:-translate-y-1">
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-brand-lightBlue text-brand-blue flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 shadow-sm">
-                      {cluster.id === "water-supply" && (
-                        <Droplets className="w-6 h-6 transition-transform duration-300 group-hover:scale-115 group-hover:rotate-6" />
-                      )}
-                      {cluster.id === "sanitary-bathroom" && (
-                        <Bath className="w-6 h-6 transition-transform duration-300 group-hover:scale-115 group-hover:rotate-6" />
-                      )}
-                      {cluster.id === "kitchen-plumbing" && (
-                        <Utensils className="w-6 h-6 transition-transform duration-300 group-hover:scale-115 group-hover:rotate-6" />
-                      )}
+                    {/* Realistic Service Image */}
+                    <div className="relative w-full h-48 overflow-hidden bg-slate-100">
+                      <Image
+                        src={cluster.image}
+                        alt={`${cluster.title} - A.R Plumbing Chennai`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                      {/* Floating Category Badge with Icon */}
+                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brand-navy text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm flex items-center gap-1.5 border border-slate-100 group-hover:border-brand-blue/30 transition-colors">
+                        {cluster.id === "water-supply" && <Droplets className="w-3.5 h-3.5 text-brand-blue" />}
+                        {cluster.id === "sanitary-bathroom" && <Bath className="w-3.5 h-3.5 text-brand-blue" />}
+                        {cluster.id === "kitchen-plumbing" && <Utensils className="w-3.5 h-3.5 text-brand-blue" />}
+                        <span>Verified Offering</span>
+                      </div>
                     </div>
 
-                    <h3 className="font-heading font-bold text-xl text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
-                      {cluster.title}
-                    </h3>
+                    <div className="p-5 sm:p-6">
+                      <h3 className="font-heading font-bold text-xl text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+                        {cluster.title}
+                      </h3>
 
-                    <p className="text-xs sm:text-sm text-brand-muted leading-relaxed mb-4">
-                      {cluster.summary}
-                    </p>
+                      {/* Short 10-12 word intro */}
+                      <p className="text-xs sm:text-sm text-brand-muted leading-relaxed mb-4">
+                        {cluster.shortIntro}
+                      </p>
 
-                    <div className="space-y-1.5 pt-3 border-t border-slate-100">
-                      {cluster.services.slice(0, 5).map((srv, sIdx) => (
-                        <div key={sIdx} className="flex items-start gap-2 text-xs text-brand-text">
-                          <span className="text-brand-orange font-bold mt-0.5">•</span>
-                          <span className="line-clamp-1">{srv}</span>
-                        </div>
-                      ))}
-                      {cluster.services.length > 5 && (
-                        <div className="text-[11px] font-semibold text-brand-blue pt-1">
-                          + {cluster.services.length - 5} more specialized services
-                        </div>
-                      )}
+                      {/* 2-3 Word Key Point Pills */}
+                      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                        {cluster.keyPoints.map((point, pIdx) => (
+                          <span
+                            key={pIdx}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-lightBlue/70 text-brand-blue text-[11px] font-semibold"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
+                            {point}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <div className="p-5 sm:p-6 pt-0 border-t border-slate-100 mt-2 flex items-center justify-between">
                     <Link
                       href="/services"
                       className="text-xs font-semibold text-brand-navy hover:text-brand-orange transition-colors inline-flex items-center gap-1"
@@ -419,6 +429,9 @@ export default function HomePage() {
                       rel="noopener noreferrer"
                       className="text-xs font-bold text-brand-whatsapp hover:underline inline-flex items-center gap-1"
                     >
+                      <div className="relative w-3.5 h-3.5 rounded-full overflow-hidden flex-shrink-0">
+                        <Image src="/images/whatsapp-official.png" alt="WhatsApp" fill className="object-cover" />
+                      </div>
                       <span>WhatsApp</span>
                     </a>
                   </div>
